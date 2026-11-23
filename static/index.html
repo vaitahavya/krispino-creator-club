@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Krispino Creator Club — Onboarding, Influencer Hub &amp; Admin Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Figtree:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <div class="brand-group">
+        <a class="logo" href="#top" id="logoHome">Krispino</a>
+        <span class="role-pill" id="roleBadge">Creator Club</span>
+      </div>
+
+      <nav aria-label="Main navigation" id="mainNav">
+        <button type="button" class="nav-link active" data-nav="landing">Program Info</button>
+        <a href="#flavours" class="landing-anchor">Flavours</a>
+        <a href="#tiers" class="landing-anchor">Tiers</a>
+        <a href="#apply" class="landing-anchor">Apply</a>
+        <button type="button" class="nav-link" data-nav="influencer" id="navInfluencerBtn" hidden>Influencer Dashboard</button>
+        <button type="button" class="nav-link" data-nav="admin" id="navAdminBtn" hidden>Admin Console</button>
+      </nav>
+
+      <div class="top-actions">
+        <button type="button" class="icon-btn" id="themeToggleBtn" aria-label="Toggle color theme" title="Toggle light/dark theme">◐</button>
+        <button type="button" class="btn sm ghost" id="openLoginBtn">Sign In</button>
+        <button type="button" class="btn sm subtle" id="myPortalBtn" hidden>My Dashboard</button>
+        <button type="button" class="btn sm ghost" id="logoutBtn" hidden>Sign Out</button>
+      </div>
+    </header>
+
+    <!-- =====================================================================
+         VIEW 1: PUBLIC LANDING PAGE & CREATOR APPLICATION
+         ===================================================================== -->
+    <main id="landingView">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="label">Creator Club · Launching 1 Dec 2026</p>
+          <h1>Create with India's fusion chip brand.</h1>
+          <p class="lede">
+            Krispino chips pair bold Indian flavours with international icons — like Guntur chilli with Jamaican jerk.
+            Get a curated flavour box, track your campaign in your Creator Dashboard, submit drafts for instant review, and grow with us from launch day.
+          </p>
+          <div class="ctas">
+            <a class="btn" href="#apply">Apply to Join</a>
+            <button class="btn ghost" type="button" id="heroLoginBtn">Creator / Admin Sign In</button>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Portal quick access">
+          <p class="label">Interactive Portals</p>
+          <h3>Explore the platform</h3>
+          <p class="hint">Sign in to your Creator Hub or test the live demo accounts with one click:</p>
+          <div class="portal-shortcuts">
+            <button type="button" class="shortcut-btn" data-quick-demo="influencer-box">
+              <div>
+                <b>Influencer Dashboard (Ananya · Explorer)</b>
+                <span>Box shipped · Track delivery, code ANANYA15 &amp; submit draft</span>
+              </div>
+              <span aria-hidden="true">→</span>
+            </button>
+            <button type="button" class="shortcut-btn" data-quick-demo="influencer-draft">
+              <div>
+                <b>Influencer Dashboard (Rohan · Ambassador)</b>
+                <span>Draft submitted · ₹35,000 campaign &amp; review status</span>
+              </div>
+              <span aria-hidden="true">→</span>
+            </button>
+            <button type="button" class="shortcut-btn" data-quick-demo="admin">
+              <div>
+                <b>Admin Brand Console (Team Login)</b>
+                <span>Manage applications, approve drafts, assign boxes &amp; fees</span>
+              </div>
+              <span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="stats">
+        <div><b>9</b><span>fusion flavours</span></div>
+        <div><b>3</b><span>bases: banana, tapioca, potato</span></div>
+        <div><b>1K+</b><span>followers to apply</span></div>
+        <div><b>₹35K+</b><span>top tier campaign fees</span></div>
+      </div>
+
+      <section id="flavours">
+        <div class="sec-head">
+          <p class="label">The range</p>
+          <h2>What could be in your box</h2>
+          <p>Each flavour pairs a regional Indian favourite with one from abroad. Filter by chip base or heat level:</p>
+        </div>
+        <div class="filter-pills" role="group" aria-label="Filter flavours by chip base">
+          <button type="button" class="pill-btn active" data-flv-filter="all">All 9 Flavours</button>
+          <button type="button" class="pill-btn" data-flv-filter="Potato">Potato Base</button>
+          <button type="button" class="pill-btn" data-flv-filter="Banana">Banana Base</button>
+          <button type="button" class="pill-btn" data-flv-filter="Tapioca">Tapioca Base</button>
+          <button type="button" class="pill-btn" data-flv-filter="Hot">Spicy Picks</button>
+        </div>
+        <div class="flavours" id="flavoursGrid"></div>
+      </section>
+
+      <section id="how">
+        <div class="sec-head">
+          <p class="label">How it works</p>
+          <h2>From application to first post</h2>
+        </div>
+        <ol class="steps">
+          <li><span class="n">01</span><div class="txt"><h3>Apply &amp; get your Creator Dashboard</h3><p>Fill in the form below in 3 minutes. Your Influencer Dashboard is created immediately.</p></div><span class="when">Today</span></li>
+          <li><span class="n">02</span><div class="txt"><h3>Get shortlisted &amp; assigned a tier</h3><p>Our brand team reviews your profile, locks in your collab tier, and activates your discount code.</p></div><span class="when">Within 5 working days</span></li>
+          <li><span class="n">03</span><div class="txt"><h3>Receive your custom flavour box</h3><p>Track your courier shipment live from your dashboard along with your creative brief.</p></div><span class="when">3–6 days</span></li>
+          <li><span class="n">04</span><div class="txt"><h3>Submit draft for quick check</h3><p>Upload your draft link &amp; caption in the dashboard for fast ASCI compliance approval before posting.</p></div><span class="when">Within 7 days of delivery</span></li>
+          <li><span class="n">05</span><div class="txt"><h3>Post live &amp; get rewarded</h3><p>Share your live Reel link to unlock your fixed fee, order bonuses, and paid Reel boost.</p></div><span class="when">After posting</span></li>
+        </ol>
+      </section>
+
+      <section id="tiers">
+        <div class="sec-head">
+          <p class="label">Collab tiers</p>
+          <h2>A place for every size of creator</h2>
+          <p>Your tier depends on followers and average Reel views. We confirm exact terms in your dashboard when you're shortlisted.</p>
+        </div>
+        <div class="tiers">
+          <article class="tier">
+            <div><span class="range">1K – 10K followers</span><h3>Taster</h3></div>
+            <span class="sub">You get</span>
+            <ul><li>A free 9-pack flavour box</li><li>Your own 15% discount code</li><li>Reshare on official stories</li></ul>
+            <span class="sub">You create</span>
+            <ul><li>1 Reel and 2 stories</li></ul>
+          </article>
+          <article class="tier feature">
+            <div><span class="range">10K – 100K followers</span><h3>Explorer</h3></div>
+            <span class="sub">You get</span>
+            <ul><li>A full flavour box</li><li>Fixed fee per collab (₹6K – ₹15K)</li><li>Discount code with order bonus</li><li>Paid boost of your best Reel</li></ul>
+            <span class="sub">You create</span>
+            <ul><li>1–2 Reels and 3 stories</li></ul>
+          </article>
+          <article class="tier">
+            <div><span class="range">100K+ followers</span><h3>Ambassador</h3></div>
+            <span class="sub">You get</span>
+            <ul><li>Custom campaign fee (₹25K – ₹50K+)</li><li>Early access to new flavours</li><li>Long-term partnership &amp; revenue share</li></ul>
+            <span class="sub">You create</span>
+            <ul><li>Agreed per campaign</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="guidelines">
+        <div class="sec-head">
+          <p class="label">Content guidelines</p>
+          <h2>Keep it real</h2>
+        </div>
+        <div class="rules">
+          <div>
+            <h3>Do</h3>
+            <ul>
+              <li>Film your honest first-bite crunch &amp; reaction.</li>
+              <li>Name the fusion clearly, e.g. "Guntur chilli × Jamaican jerk".</li>
+              <li>Keep the pack and red Krispino logo clearly visible.</li>
+              <li>Show chips in everyday moments: chai breaks, match nights, road trips.</li>
+              <li>Tag @krispino and add your personal discount code to the caption.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Don't</h3>
+            <ul>
+              <li>Make health or medical claims like "healthy" or "guilt-free".</li>
+              <li>Call Krispino a regional or single-state snack.</li>
+              <li>Show competing snack brands in the frame.</li>
+              <li>Post before your draft is approved in the Creator Dashboard.</li>
+              <li>Buy followers, likes, or views.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="disclose"><b>Disclosure is required under ASCI rules.</b> Add <code>#ad</code>, <code>#collab</code>, or <code>#KrispinoPartner</code> at the start of your caption and on the video.</p>
+      </section>
+
+      <section id="apply">
+        <div class="sec-head">
+          <p class="label">Apply &amp; Create Account</p>
+          <h2>Join the Creator Club</h2>
+          <p>Submit your details to unlock your Influencer Dashboard immediately and optionally send via WhatsApp. Fields marked * are required.</p>
+        </div>
+
+        <form id="appForm" class="formcard" novalidate>
+          <div class="grid2">
+            <div class="field">
+              <label for="f-name">Full name *</label>
+              <span id="f-name-hint" class="hint">Your full name for box delivery &amp; payouts</span>
+              <input id="f-name" name="name" required autocomplete="name" aria-describedby="f-name-hint" placeholder="Ananya Rao">
+              <div class="error-msg">Please enter your full name.</div>
+            </div>
+
+            <div class="field">
+              <label for="f-handle">Instagram handle *</label>
+              <span id="f-handle-hint" class="hint">Public creator profile handle</span>
+              <input id="f-handle" name="handle" required spellcheck="false" aria-describedby="f-handle-hint" placeholder="@yourhandle">
+              <div class="error-msg">Please enter your Instagram handle.</div>
+            </div>
+
+            <div class="field">
+              <label for="f-followers">Followers *</label>
+              <span id="f-followers-hint" class="hint">Determines your initial Collab Tier</span>
+              <select id="f-followers" name="followers" required aria-describedby="f-followers-hint">
+                <option value="">Select a range</option>
+                <option>1K – 10K</option>
+                <option>10K – 50K</option>
+                <option>50K – 100K</option>
+                <option>100K – 500K</option>
+                <option>500K+</option>
+              </select>
+              <div class="error-msg">Please select your follower range.</div>
+            </div>
+
+            <div class="field">
+              <label for="f-views">Average Reel views</label>
+              <span id="f-views-hint" class="hint">Average across your last 10 Reels</span>
+              <input id="f-views" name="views" inputmode="numeric" aria-describedby="f-views-hint" placeholder="e.g. 18,000">
+            </div>
+
+            <div class="field">
+              <label for="f-city">City *</label>
+              <span id="f-city-hint" class="hint">City for courier dispatch</span>
+              <input id="f-city" name="city" required autocomplete="address-level2" aria-describedby="f-city-hint" placeholder="Bengaluru">
+              <div class="error-msg">Please enter your city.</div>
+            </div>
+
+            <div class="field">
+              <label for="f-pin">Delivery pincode *</label>
+              <span id="f-pin-hint" class="hint">6-digit Indian postal pincode</span>
+              <input id="f-pin" name="pincode" required inputmode="numeric" pattern="\d{6}" maxlength="6" autocomplete="postal-code" aria-describedby="f-pin-hint" placeholder="560034">
+              <div class="error-msg">Pincode must be exactly 6 digits.</div>
+            </div>
+
+            <div class="field full">
+              <label for="f-address">Street address / landmark for Flavour Box</label>
+              <span id="f-address-hint" class="hint">Flat / House no., street, and landmark so your box arrives smoothly</span>
+              <input id="f-address" name="address" autocomplete="street-address" aria-describedby="f-address-hint" placeholder="42, 4th Cross, Koramangala 3rd Block">
+            </div>
+
+            <div class="field">
+              <label for="f-phone">WhatsApp number *</label>
+              <span id="f-phone-hint" class="hint">For quick shortlist &amp; courier updates</span>
+              <input id="f-phone" name="phone" type="tel" required inputmode="tel" autocomplete="tel" aria-describedby="f-phone-hint" placeholder="+91 98765 43210">
+              <div class="error-msg">Please enter a valid WhatsApp phone number.</div>
+            </div>
+
+            <div class="field">
+              <label for="f-email">Email address *</label>
+              <span id="f-email-hint" class="hint">Used to sign in to your Influencer Dashboard</span>
+              <input id="f-email" name="email" type="email" required autocomplete="email" spellcheck="false" aria-describedby="f-email-hint" placeholder="you@example.com">
+              <div class="error-msg">Please enter a valid email address.</div>
+            </div>
+
+            <div class="field">
+              <label for="f-password">Create Dashboard Password *</label>
+              <span id="f-pass-hint" class="hint">At least 6 characters to access your Influencer Hub</span>
+              <input id="f-password" name="password" type="password" required minlength="6" autocomplete="new-password" aria-describedby="f-pass-hint" placeholder="••••••••">
+              <div class="error-msg">Password must be at least 6 characters.</div>
+            </div>
+
+            <div class="field">
+              <label for="f-other">Other platforms <span class="hint" style="display:inline">(YouTube, Moj, etc.)</span></label>
+              <span id="f-other-hint" class="hint">Optional secondary channel link</span>
+              <input id="f-other" name="other" type="url" aria-describedby="f-other-hint" placeholder="https://youtube.com/@yourchannel">
+            </div>
+
+            <div class="field full">
+              <span class="legend">Content niche * <span class="hint" style="display:inline">(Pick all that fit)</span></span>
+              <div class="checks" id="f-niche" role="group" aria-label="Content niche">
+                <label><input type="checkbox" value="Food &amp; reviews">Food &amp; reviews</label>
+                <label><input type="checkbox" value="Comedy &amp; skits">Comedy &amp; skits</label>
+                <label><input type="checkbox" value="Lifestyle">Lifestyle</label>
+                <label><input type="checkbox" value="Travel">Travel</label>
+                <label><input type="checkbox" value="Sports &amp; gaming">Sports &amp; gaming</label>
+                <label><input type="checkbox" value="Student life">Student life</label>
+                <label><input type="checkbox" value="Family &amp; parenting">Family &amp; parenting</label>
+              </div>
+            </div>
+
+            <div class="field full">
+              <span class="legend">Top 3 flavours you want in your box <span class="hint" style="display:inline">(Up to 3)</span></span>
+              <div class="checks" id="f-flavours-pick" role="group" aria-label="Preferred flavours"></div>
+            </div>
+
+            <div class="field full">
+              <label for="f-idea">One content idea for Krispino *</label>
+              <span id="f-idea-hint" class="hint">Tell us how you would introduce the Indian × International flavour fusion to your audience</span>
+              <textarea id="f-idea" name="idea" required aria-describedby="f-idea-hint" placeholder="e.g. Blind taste test with my roommates: guess the country behind each chip."></textarea>
+              <div class="error-msg">Please share a brief content idea.</div>
+            </div>
+          </div>
+
+          <label class="consent">
+            <input type="checkbox" id="f-consent" required>
+            <span>I will mark every paid or gifted post with <b>#ad</b> or <b>#collab</b>, as ASCI guidelines require. *</span>
+          </label>
+
+          <p class="err-banner" id="formErr" hidden></p>
+
+          <div class="formfoot">
+            <span class="hint" id="saveNote">Submitting saves your application and opens your Influencer Dashboard.</span>
+            <button class="btn" type="submit" id="submitAppBtn">Submit &amp; Open My Dashboard</button>
+          </div>
+        </form>
+
+        <div class="formcard" id="sentCard" hidden>
+          <div style="display:grid;gap:6px">
+            <p class="label">Application Saved</p>
+            <h2>You're in the system!</h2>
+          </div>
+          <p class="muted">Your Influencer Dashboard is ready. You can also send a copy on WhatsApp to fast-track your review.</p>
+          <pre id="sentText" style="white-space:pre-wrap;background:var(--bg);padding:16px;border-radius:10px;border:1px solid var(--line);font-size:13.5px;margin:0"></pre>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <button class="btn" type="button" id="goDashboardAfterSubmitBtn">Go to My Influencer Dashboard →</button>
+            <a class="btn ghost" id="waLink" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+            <button class="btn ghost" type="button" id="copyBtn">Copy summary</button>
+            <button class="btn ghost" type="button" id="editBtn">Edit details</button>
+          </div>
+          <p class="hint">WhatsApp <b>+91 86601 75767</b> · Email <b>contact@krispino.in</b> <span id="copyMsg" role="status"></span></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- =====================================================================
+         VIEW 2: INFLUENCER DASHBOARD
+         ===================================================================== -->
+    <section id="influencerView" class="dashboard-view" hidden>
+      <div class="dash-header">
+        <div style="display:grid;gap:6px">
+          <p class="label">Creator Portal</p>
+          <h2 id="infWelcomeName">Welcome, Creator</h2>
+          <p class="muted" id="infSubline">@handle · City · Followers</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+          <span class="badge st-New" id="infStatusBadge">Status: New</span>
+          <span class="badge st-Shortlisted" id="infTierBadge">Tier: Explorer</span>
+          <a class="btn sm ghost" id="infWaQuickBtn" href="#" target="_blank" rel="noopener">Message Brand Team</a>
+        </div>
+      </div>
+
+      <!-- 5-Step Onboarding Progress -->
+      <ol class="stepper" id="infStepper" aria-label="Onboarding progress"></ol>
+
+      <!-- Brand Team Feedback / Status Banner -->
+      <div class="feedback-callout" id="infFeedbackBanner" hidden>
+        <b>Note from Krispino Brand Team</b>
+        <p id="infFeedbackText"></p>
+      </div>
+
+      <div class="inf-grid">
+        <div class="inf-col">
+          <!-- Deliverables & Draft Review Card -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <p class="label">Step 4 &amp; 5 · Content Workflow</p>
+                <h3>Draft Approval &amp; Live Post</h3>
+              </div>
+              <span class="hint" id="infDeliverableSpec">1–2 Reels + 3 Stories</span>
+            </div>
+
+            <form id="infDraftForm" style="display:grid;gap:14px" novalidate>
+              <div class="field">
+                <label for="inf-draft-url">1. Draft Video Link (Google Drive, Dropbox, Frame.io) *</label>
+                <span id="inf-draft-url-hint" class="hint">Submit your draft before posting publicly so we can verify ASCI compliance</span>
+                <input type="url" id="inf-draft-url" name="draft_url" required aria-describedby="inf-draft-url-hint" placeholder="https://drive.google.com/file/d/...">
+                <div class="error-msg">Please enter a valid URL starting with https://</div>
+              </div>
+
+              <div class="field">
+                <label for="inf-draft-caption">Draft Caption (must include #ad, #collab, or #KrispinoPartner) *</label>
+                <span id="inf-draft-cap-hint" class="hint">Include @krispino and your personal discount code in the caption</span>
+                <textarea id="inf-draft-caption" name="draft_caption" required aria-describedby="inf-draft-cap-hint" placeholder="#ad Trying the new @krispino Guntur Jerk &amp; Wasa-Boom chips! Use my code for 15% off."></textarea>
+                <div class="error-msg">Please enter your draft caption with an ASCI disclosure tag.</div>
+              </div>
+
+              <p id="infDraftMsg" role="status" hidden></p>
+
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+                <span class="hint" id="infDraftTimestamp">Not submitted yet</span>
+                <button type="submit" class="btn sm">Submit Draft for Approval</button>
+              </div>
+            </form>
+
+            <hr style="border:none;border-top:1px solid var(--line);margin:4px 0">
+
+            <form id="infLivePostForm" style="display:grid;gap:14px" novalidate>
+              <div class="grid2">
+                <div class="field">
+                  <label for="inf-live-url">2. Live Instagram Reel URL *</label>
+                  <span id="inf-live-url-hint" class="hint">Paste once your draft is approved and posted</span>
+                  <input type="url" id="inf-live-url" name="live_post_url" required aria-describedby="inf-live-url-hint" placeholder="https://instagram.com/reel/...">
+                  <div class="error-msg">Please enter your live Instagram Reel URL.</div>
+                </div>
+                <div class="field">
+                  <label for="inf-story-url">Stories Link / Highlight URL</label>
+                  <span id="inf-story-hint" class="hint">Optional link to your companion stories</span>
+                  <input type="url" id="inf-story-url" name="live_story_url" aria-describedby="inf-story-hint" placeholder="https://instagram.com/stories/...">
+                </div>
+              </div>
+              <div class="field" style="max-width:240px">
+                <label for="inf-live-views">Current Reel Views</label>
+                <span id="inf-views-count-hint" class="hint">Update anytime to qualify for Reel boost</span>
+                <input type="number" id="inf-live-views" name="live_views" min="0" inputmode="numeric" aria-describedby="inf-views-count-hint" placeholder="e.g. 25000">
+              </div>
+
+              <p id="infPostMsg" role="status" hidden></p>
+
+              <div style="display:flex;justify-content:flex-end">
+                <button type="submit" class="btn sm subtle">Save Live Post &amp; Views</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Flavour Box Customizer & Profile Settings -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <p class="label">Flavour Box &amp; Profile</p>
+                <h3>Customize Box Flavours &amp; Delivery Address</h3>
+              </div>
+            </div>
+
+            <form id="infProfileForm" style="display:grid;gap:16px" novalidate>
+              <div class="field">
+                <span class="legend">Pick your top 3 Krispino flavours for your box</span>
+                <div class="checks" id="infFlavoursCheckGroup" role="group" aria-label="Select up to 3 flavours"></div>
+              </div>
+
+              <div class="grid2">
+                <div class="field">
+                  <label for="inf-edit-phone">WhatsApp Number</label>
+                  <input type="tel" id="inf-edit-phone" autocomplete="tel" required>
+                </div>
+                <div class="field">
+                  <label for="inf-edit-city">City</label>
+                  <input type="text" id="inf-edit-city" autocomplete="address-level2" required>
+                </div>
+                <div class="field">
+                  <label for="inf-edit-pin">Delivery Pincode</label>
+                  <input type="text" id="inf-edit-pin" inputmode="numeric" pattern="\d{6}" maxlength="6" autocomplete="postal-code" required>
+                </div>
+                <div class="field">
+                  <label for="inf-edit-other">Other Channels</label>
+                  <input type="text" id="inf-edit-other" placeholder="youtube.com/@channel">
+                </div>
+                <div class="field full">
+                  <label for="inf-edit-address">Delivery Street Address &amp; Landmark</label>
+                  <input type="text" id="inf-edit-address" autocomplete="street-address" placeholder="Flat / House No, Street, Area">
+                </div>
+                <div class="field full">
+                  <label for="inf-edit-idea">My Content Concept / Pitch</label>
+                  <textarea id="inf-edit-idea" required></textarea>
+                </div>
+              </div>
+
+              <p id="infProfileMsg" role="status" hidden></p>
+
+              <div style="display:flex;justify-content:flex-end">
+                <button type="submit" class="btn sm ghost">Save Profile &amp; Box Preferences</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <aside class="inf-col">
+          <!-- Discount Code & Payout Card -->
+          <div class="card soft">
+            <div>
+              <p class="label">Rewards &amp; Referral Code</p>
+              <h3>Your Creator Perks</h3>
+            </div>
+
+            <div>
+              <span class="hint">Personal Audience Discount Code (15% off)</span>
+              <div class="code-box" style="margin-top:6px">
+                <code id="infDiscountCode">KRISP15</code>
+                <button type="button" class="btn sm ghost" id="copyCodeBtn">Copy Code</button>
+              </div>
+            </div>
+
+            <div class="grid2">
+              <div class="kpi-card" style="background:var(--bg)">
+                <span class="k-val" id="infCodeUses">0</span>
+                <span class="k-lbl">Orders with your code</span>
+              </div>
+              <div class="kpi-card" style="background:var(--bg)">
+                <span class="k-val" id="infCollabFee">₹0</span>
+                <span class="k-lbl" id="infPayoutStatus">Payout: Pending</span>
+              </div>
+            </div>
+
+            <div style="font-size:13.5px;color:var(--muted);display:grid;gap:6px">
+              <b style="color:var(--ink)">Tier Benefits Unlocked:</b>
+              <ul id="infTierPerksList" style="margin:0;padding-left:18px;display:grid;gap:4px"></ul>
+            </div>
+          </div>
+
+          <!-- Shipment Tracker Card -->
+          <div class="card">
+            <div>
+              <p class="label">Logistics</p>
+              <h3>Flavour Box Shipment</h3>
+            </div>
+            <div style="display:grid;gap:10px;font-size:14px">
+              <div style="display:flex;justify-content:space-between">
+                <span class="muted">Courier Partner</span>
+                <b id="infCarrier">BlueDart Express</b>
+              </div>
+              <div style="display:flex;justify-content:space-between">
+                <span class="muted">Tracking Waybill</span>
+                <b id="infTrackingId">Awaiting dispatch</b>
+              </div>
+              <div style="display:flex;justify-content:space-between">
+                <span class="muted">Destination</span>
+                <b id="infDestPin">—</b>
+              </div>
+              <div>
+                <span class="muted" style="display:block;margin-bottom:6px">Selected Box Flavours:</span>
+                <div id="infBoxFlavoursPills" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ASCI Quick Checklist Card -->
+          <div class="card">
+            <div>
+              <p class="label">Pre-Flight Checklist</p>
+              <h3>Before you hit post</h3>
+            </div>
+            <div style="display:grid;gap:8px;font-size:13.5px">
+              <label class="consent"><input type="checkbox" checked disabled><span>Include <b>#ad</b> or <b>#collab</b> at the very beginning of caption</span></label>
+              <label class="consent"><input type="checkbox" checked disabled><span>Name the Indian × International flavour pairing aloud</span></label>
+              <label class="consent"><input type="checkbox" checked disabled><span>Show the red Krispino pack clearly in the first 3 seconds</span></label>
+              <label class="consent"><input type="checkbox" checked disabled><span>Tag <b>@krispino</b> and mention your discount code</span></label>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         VIEW 3: ADMIN BRAND CONSOLE & APPLICATIONS TRACKER
+         ===================================================================== -->
+    <section id="adminView" class="dashboard-view" hidden>
+      <div class="dash-header">
+        <div style="display:grid;gap:6px">
+          <p class="label">Team Only · Admin Console</p>
+          <h2>Creator Onboarding &amp; Campaign Tracker</h2>
+          <p class="muted">Review applications, dispatch flavour boxes, approve creator drafts, and track ROI.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <button type="button" class="btn sm ghost" id="exportCsvBtn">Export CSV</button>
+          <button type="button" class="btn sm" id="openAddCreatorBtn">+ Add Creator</button>
+        </div>
+      </div>
+
+      <!-- Admin KPIs -->
+      <div class="kpi-grid" id="adminKpiGrid">
+        <div class="kpi-card"><span class="k-val" id="kpiTotal">0</span><span class="k-lbl">Total Creators</span></div>
+        <div class="kpi-card"><span class="k-val" id="kpiShortlisted">0</span><span class="k-lbl">Shortlisted / Active</span></div>
+        <div class="kpi-card"><span class="k-val" id="kpiBoxes">0</span><span class="k-lbl">Boxes Dispatched</span></div>
+        <div class="kpi-card"><span class="k-val" id="kpiDrafts">0</span><span class="k-lbl">Drafts Pending Review</span></div>
+        <div class="kpi-card"><span class="k-val" id="kpiViews">0</span><span class="k-lbl">Live Reel Views</span></div>
+        <div class="kpi-card"><span class="k-val" id="kpiBudget">₹0</span><span class="k-lbl">Committed Fees ( + <span id="kpiOrders">0</span> orders)</span></div>
+      </div>
+
+      <!-- Filter & Search Bar -->
+      <div class="toolbar">
+        <div class="toolbar-filters">
+          <input type="search" id="adminSearchInput" placeholder="Search name, @handle, city, code…" aria-label="Search creators" enterkeyhint="search">
+          <select id="adminStatusFilter" aria-label="Filter by status">
+            <option value="">All Statuses</option>
+            <option>New</option>
+            <option>Shortlisted</option>
+            <option>Box sent</option>
+            <option>Draft received</option>
+            <option>Draft approved</option>
+            <option>Posted</option>
+            <option>Not a fit</option>
+          </select>
+          <select id="adminTierFilter" aria-label="Filter by tier">
+            <option value="">All Tiers</option>
+            <option>Taster</option>
+            <option>Explorer</option>
+            <option>Ambassador</option>
+          </select>
+        </div>
+        <span class="hint" id="adminCountLabel">Showing all creators</span>
+      </div>
+
+      <!-- Responsive Data Table (following modern-web-guidance `responsive-table`) -->
+      <div tabindex="0" role="region" aria-labelledby="admin-table-caption" class="table-wrapper">
+        <table>
+          <caption id="admin-table-caption">Krispino Creator Club Applications &amp; Deliverables Directory</caption>
+          <thead>
+            <tr>
+              <th scope="col">Creator</th>
+              <th scope="col">Followers &amp; Views</th>
+              <th scope="col">Tier &amp; Code</th>
+              <th scope="col">City &amp; Niche</th>
+              <th scope="col">Deliverables &amp; Box</th>
+              <th scope="col">Status</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody">
+            <tr><td colspan="7" style="text-align:center;padding:32px" class="muted">Loading creator applications…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Krispino Foods Pvt. Ltd. · krispino.in</span>
+      <span>Creator Support: <b>contact@krispino.in</b> · WhatsApp <b>+91 86601 75767</b></span>
+    </footer>
+  </div>
+
+  <!-- =======================================================================
+       MODAL 1: SIGN IN DIALOG (following `dialog` + `autofill-sign-in-form`)
+       ======================================================================= -->
+  <dialog id="loginDialog" closedby="any" aria-labelledby="login-dlg-title">
+    <div class="dlg-head">
+      <h2 id="login-dlg-title" style="font-size:22px">Sign In to Krispino</h2>
+      <button type="button" class="icon-btn" id="closeLoginDlgBtn" aria-label="Close sign in dialog">✕</button>
+    </div>
+
+    <div class="dlg-body">
+      <div class="demo-accounts">
+        <span class="label">1-Click Instant Demo Accounts</span>
+        <span class="hint">Click any card below to sign in immediately:</span>
+        <div class="demo-grid">
+          <button type="button" class="demo-chip" data-demo-login="admin@krispino.in|Krispino@2026">
+            <b>Admin Brand Console</b>
+            admin@krispino.in
+          </button>
+          <button type="button" class="demo-chip" data-demo-login="ananya@example.com|creator123">
+            <b>Ananya (@ananyaeats)</b>
+            Explorer · Box Sent
+          </button>
+          <button type="button" class="demo-chip" data-demo-login="rohan@example.com|creator123">
+            <b>Rohan (@rohanlaughs)</b>
+            Ambassador · Draft Review
+          </button>
+          <button type="button" class="demo-chip" data-demo-login="meera@example.com|creator123">
+            <b>Meera (@meeracooks)</b>
+            Explorer · Posted &amp; Paid
+          </button>
+        </div>
+      </div>
+
+      <form id="loginForm" style="display:grid;gap:16px" novalidate>
+        <div class="field">
+          <label for="login-email">Email or Instagram Handle</label>
+          <span id="login-email-hint" class="hint">Enter your creator email (e.g. ananya@example.com) or admin@krispino.in</span>
+          <input
+            type="text"
+            id="login-email"
+            name="email"
+            autocomplete="username"
+            spellcheck="false"
+            autocapitalize="none"
+            autocorrect="off"
+            required
+            autofocus
+            aria-describedby="login-email-hint"
+            placeholder="you@example.com or @handle"
+          >
+          <div class="error-msg">Please enter your email address or handle.</div>
+        </div>
+
+        <div class="field">
+          <label for="login-password">Password</label>
+          <span id="login-pw-hint" class="hint">Default demo password for creators is creator123</span>
+          <input
+            type="password"
+            id="login-password"
+            name="password"
+            autocomplete="current-password"
+            enterkeyhint="done"
+            required
+            aria-describedby="login-pw-hint"
+            placeholder="••••••••"
+          >
+          <div class="error-msg">Please enter your password.</div>
+        </div>
+
+        <p class="err-banner" id="loginErrBanner" hidden></p>
+
+        <button type="submit" class="btn" id="loginSubmitBtn" style="width:100%">Sign In</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- =======================================================================
+       MODAL 2: ADMIN CREATOR REVIEW & CAMPAIGN MANAGEMENT DIALOG
+       ======================================================================= -->
+  <dialog id="reviewDialog" class="wide" closedby="any" aria-labelledby="review-dlg-title">
+    <div class="dlg-head">
+      <div>
+        <span class="label" id="revCreatorHandle">@handle</span>
+        <h2 id="review-dlg-title" style="font-size:22px">Manage Creator</h2>
+      </div>
+      <button type="button" class="icon-btn" id="closeReviewDlgBtn" aria-label="Close creator review dialog">✕</button>
+    </div>
+
+    <form id="adminReviewForm" class="dlg-body" novalidate>
+      <input type="hidden" id="rev-id">
+
+      <!-- Creator Summary Box -->
+      <div class="card soft" style="padding:16px;gap:10px">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font-size:13.5px">
+          <span><b>Location:</b> <span id="revLocation">—</span></span>
+          <span><b>Contact:</b> <span id="revContact">—</span></span>
+          <span><b>Audience:</b> <span id="revAudience">—</span></span>
+        </div>
+        <div style="font-size:13.5px">
+          <b>Content Pitch:</b> <span id="revIdea" class="muted"></span>
+        </div>
+        <div style="font-size:13.5px">
+          <b>Requested Box Flavours:</b> <span id="revFlavours" class="muted"></span>
+        </div>
+      </div>
+
+      <!-- Draft & Live Post Inspection -->
+      <div class="card" style="padding:16px;gap:12px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <h3 style="font-size:16px">Submitted Draft &amp; Live Post</h3>
+          <div style="display:flex;gap:8px">
+            <button type="button" class="btn sm success" id="quickApproveDraftBtn">✓ Approve Draft</button>
+            <button type="button" class="btn sm ghost" id="quickRequestChangesBtn">Request Revision</button>
+          </div>
+        </div>
+        <div style="font-size:13.5px;display:grid;gap:6px">
+          <div><b>Draft Video URL:</b> <span id="revDraftUrlWrap">No draft uploaded yet</span></div>
+          <div><b>Draft Caption:</b> <span id="revDraftCaption" class="muted">—</span></div>
+          <div><b>Live Reel URL:</b> <span id="revLiveUrlWrap">Not posted yet</span></div>
+        </div>
+        <div class="field">
+          <label for="rev-feedback">Feedback / Instructions for Creator (visible in Influencer Dashboard)</label>
+          <textarea id="rev-feedback" rows="2" placeholder="e.g. Draft approved! Please post this Friday at 7 PM with #ad at the start of caption."></textarea>
+        </div>
+      </div>
+
+      <!-- Campaign & Logistics Controls -->
+      <div class="grid3">
+        <div class="field">
+          <label for="rev-status">Onboarding Status</label>
+          <select id="rev-status" autofocus>
+            <option>New</option>
+            <option>Shortlisted</option>
+            <option>Box sent</option>
+            <option>Draft received</option>
+            <option>Draft approved</option>
+            <option>Posted</option>
+            <option>Not a fit</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="rev-tier">Collab Tier</label>
+          <select id="rev-tier">
+            <option>Taster</option>
+            <option>Explorer</option>
+            <option>Ambassador</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="rev-code">Discount Code</label>
+          <input type="text" id="rev-code" placeholder="ANANYA15">
+        </div>
+
+        <div class="field">
+          <label for="rev-fee">Collab Fee (₹ INR)</label>
+          <input type="number" id="rev-fee" min="0" step="500" inputmode="numeric">
+        </div>
+
+        <div class="field">
+          <label for="rev-payout">Payout Status</label>
+          <select id="rev-payout">
+            <option>Barter Box</option>
+            <option>Pending</option>
+            <option>Approved</option>
+            <option>Paid</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="rev-code-uses">Code Orders Tracked</label>
+          <input type="number" id="rev-code-uses" min="0" inputmode="numeric">
+        </div>
+
+        <div class="field">
+          <label for="rev-carrier">Courier Partner</label>
+          <input type="text" id="rev-carrier" placeholder="BlueDart Express">
+        </div>
+
+        <div class="field">
+          <label for="rev-tracking">Box Tracking Number</label>
+          <input type="text" id="rev-tracking" placeholder="BD-BLR-882941">
+        </div>
+
+        <div class="field">
+          <label for="rev-views">Live Reel Views</label>
+          <input type="number" id="rev-views" min="0" inputmode="numeric">
+        </div>
+
+        <div class="field full">
+          <label for="rev-notes">Internal Brand Team Notes (Admin only)</label>
+          <textarea id="rev-notes" rows="2" placeholder="Internal notes on negotiation, audience quality, or ad boost…"></textarea>
+        </div>
+      </div>
+
+      <div class="dlg-foot" style="margin:0 -24px -24px;border-radius:0 0 18px 18px">
+        <button type="button" class="btn sm ghost" id="deleteCreatorBtn" style="margin-right:auto;color:var(--red)">Delete Creator</button>
+        <button type="button" class="btn sm ghost" id="cancelReviewBtn">Cancel</button>
+        <button type="submit" class="btn sm">Save Creator Changes</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- =======================================================================
+       MODAL 3: ADMIN MANUAL ADD CREATOR DIALOG
+       ======================================================================= -->
+  <dialog id="addCreatorDialog" closedby="any" aria-labelledby="add-dlg-title">
+    <div class="dlg-head">
+      <h2 id="add-dlg-title" style="font-size:20px">Log Creator Application</h2>
+      <button type="button" class="icon-btn" id="closeAddDlgBtn" aria-label="Close add creator dialog">✕</button>
+    </div>
+    <form id="addCreatorForm" class="dlg-body" novalidate>
+      <p class="hint">Log a creator who reached out via WhatsApp, Instagram DM, or email. Their Influencer Dashboard will be created automatically (default password: <code>creator123</code>).</p>
+      <div class="grid2">
+        <div class="field">
+          <label for="add-name">Full Name *</label>
+          <input type="text" id="add-name" required autofocus placeholder="Siddharth Menon">
+        </div>
+        <div class="field">
+          <label for="add-handle">Instagram Handle *</label>
+          <input type="text" id="add-handle" required spellcheck="false" placeholder="@sidmenon">
+        </div>
+        <div class="field">
+          <label for="add-email">Email *</label>
+          <input type="email" id="add-email" required spellcheck="false" placeholder="sid@example.com">
+        </div>
+        <div class="field">
+          <label for="add-phone">WhatsApp *</label>
+          <input type="tel" id="add-phone" required placeholder="+91 98000 11223">
+        </div>
+        <div class="field">
+          <label for="add-city">City</label>
+          <input type="text" id="add-city" placeholder="Chennai">
+        </div>
+        <div class="field">
+          <label for="add-pin">Pincode</label>
+          <input type="text" id="add-pin" maxlength="6" placeholder="600004">
+        </div>
+        <div class="field">
+          <label for="add-followers">Followers</label>
+          <select id="add-followers">
+            <option>1K – 10K</option>
+            <option selected>10K – 50K</option>
+            <option>50K – 100K</option>
+            <option>100K – 500K</option>
+            <option>500K+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="add-tier">Assigned Tier</label>
+          <select id="add-tier">
+            <option>Taster</option>
+            <option selected>Explorer</option>
+            <option>Ambassador</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="add-status">Initial Status</label>
+          <select id="add-status">
+            <option>New</option>
+            <option selected>Shortlisted</option>
+            <option>Box sent</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="add-fee">Collab Fee (₹)</label>
+          <input type="number" id="add-fee" value="7500" min="0" step="500">
+        </div>
+        <div class="field full">
+          <label for="add-idea">Content Idea / Campaign Note</label>
+          <textarea id="add-idea" rows="2" placeholder="Inbound via WhatsApp — regional food fusion reel"></textarea>
+        </div>
+      </div>
+      <div class="dlg-foot" style="margin:0 -24px -24px;border-radius:0 0 18px 18px">
+        <button type="button" class="btn sm ghost" id="cancelAddBtn">Cancel</button>
+        <button type="submit" class="btn sm">Add Creator</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="/app.js"></script>
+</body>
+</html>
+

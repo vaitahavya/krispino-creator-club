@@ -1,0 +1,9 @@
+{
+  "name": "krispino-creator-club",
+  "version": "1.0.0",
+  "description": "Krispino Creator Club — Influencer Onboarding, Creator Dashboard & Admin Console",
+  "scripts": {
+    "dev": "python3 app.py",
+    "start": "python3 app.py"
+  }
+}
