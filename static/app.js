@@ -608,6 +608,10 @@
 
     try {
       const res = await fetch(path, Object.assign({}, options, { headers }));
+      const contentType = res.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        return localFallbackApi(path, options);
+      }
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         throw { status: res.status, error: data.error || "Request failed" };
@@ -615,7 +619,7 @@
       return data;
     } catch (err) {
       if (err && err.status) throw err;
-      // Network error or static preview server -> fallback seamlessly
+      // Network error or static hosting -> fallback seamlessly
       return localFallbackApi(path, options);
     }
   }

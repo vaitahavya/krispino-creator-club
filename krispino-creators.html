@@ -1281,6 +1281,7 @@ footer {
   }
 }
 
+
 </style>
 </head>
 <body>
@@ -2268,7 +2269,7 @@ footer {
           } else if (el.hasAttribute("aria-invalid")) {
             el.setAttribute("aria-invalid", "false");
           }
-        } catch (_) {}
+        } catch (_) { }
       };
       root.addEventListener("blur", (e) => syncAria(e.target), true);
       root.addEventListener("input", (e) => {
@@ -2529,7 +2530,7 @@ footer {
     try {
       const raw = localStorage.getItem(LOCAL_DB_KEY);
       if (raw) return JSON.parse(raw);
-    } catch (_) {}
+    } catch (_) { }
     const initial = { creators: getDefaultSeedCreators(), session: null };
     saveLocalStore(initial);
     return initial;
@@ -2538,7 +2539,7 @@ footer {
   function saveLocalStore(store) {
     try {
       localStorage.setItem(LOCAL_DB_KEY, JSON.stringify(store));
-    } catch (_) {}
+    } catch (_) { }
   }
 
   function inferTier(followers) {
@@ -2789,6 +2790,10 @@ footer {
 
     try {
       const res = await fetch(path, Object.assign({}, options, { headers }));
+      const contentType = res.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        return localFallbackApi(path, options);
+      }
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
         throw { status: res.status, error: data.error || "Request failed" };
@@ -2796,7 +2801,7 @@ footer {
       return data;
     } catch (err) {
       if (err && err.status) throw err;
-      // Network error or static preview server -> fallback seamlessly
+      // Network error or static hosting -> fallback seamlessly
       return localFallbackApi(path, options);
     }
   }
@@ -2972,7 +2977,7 @@ footer {
       const el = document.getElementById(id);
       if (el && saved[id]) el.value = saved[id];
     });
-  } catch (_) {}
+  } catch (_) { }
 
   appForm.addEventListener("input", () => {
     try {
@@ -2982,7 +2987,7 @@ footer {
         if (el) o[id] = el.value.trim();
       });
       localStorage.setItem("krispino-app-draft", JSON.stringify(o));
-    } catch (_) {}
+    } catch (_) { }
   });
 
   function val(id) {
@@ -3204,7 +3209,7 @@ footer {
   document.getElementById("logoutBtn").addEventListener("click", async () => {
     try {
       await apiFetch("/api/auth/logout", { method: "POST" });
-    } catch (_) {}
+    } catch (_) { }
     localStorage.removeItem(TOKEN_KEY);
     currentUser = null;
     currentCreator = null;
@@ -3677,7 +3682,7 @@ footer {
       });
       reviewDialog.close();
       await loadAdminDashboard();
-    } catch (_) {}
+    } catch (_) { }
   });
 
   document.getElementById("deleteCreatorBtn").addEventListener("click", async () => {
@@ -3687,7 +3692,7 @@ footer {
       await apiFetch(`/api/admin/applications/${id}`, { method: "DELETE" });
       reviewDialog.close();
       await loadAdminDashboard();
-    } catch (_) {}
+    } catch (_) { }
   });
 
   // Add Creator Modal
@@ -3722,7 +3727,7 @@ footer {
       });
       addCreatorDialog.close();
       await loadAdminDashboard();
-    } catch (_) {}
+    } catch (_) { }
   });
 
   // CSV Export
@@ -3788,3 +3793,4 @@ footer {
 </script>
 </body>
 </html>
+
