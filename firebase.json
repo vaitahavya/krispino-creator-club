@@ -1,4 +1,14 @@
 {
+  "auth": {
+    "providers": {
+      "anonymous": true,
+      "emailPassword": true,
+      "googleSignIn": {
+        "oAuthBrandDisplayName": "Krispino Creator Club",
+        "supportEmail": "sreedrisyamedia1@gmail.com"
+      }
+    }
+  },
   "hosting": {
     "public": "static",
     "ignore": [
